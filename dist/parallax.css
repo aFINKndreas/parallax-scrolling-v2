@@ -25,12 +25,12 @@ parallax {
   position: relative;
   display: block;
 }
-parallax img {
+parallax img, parallax video {
   min-width: 100%;
   min-height: 100%;
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: 50%;
 }
 parallax h1 {
   display: inline-block;

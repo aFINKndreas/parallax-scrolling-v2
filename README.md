@@ -13,9 +13,9 @@ Here you can see a [Demo](https://afinkndreas.github.io/parallax-scrolling-v2/de
 ##Options
 | Attribute | Values | Default | Required | Description |
 |:---------:|:------:|:-------:|:--------:|:-----------:|
-| parallax-percent | 0.0 - 1.0 | 0.25 | optional| The offset of the parallax effect. 0% means no parallax. 100% means the max. parallax. |
+| parallax-speed | 0.0 - 0.5 | 0.25 | optional| The speed of the parallax effect. 0% means no parallax. 50% means the max. parallax. |
 
 ##Images
 
-![Image 1](https://raw.githubusercontent.com/aFINKndreas/parallax-scrolling-v2/master/img/screen0.png "Image 1")
-![Image 2](https://raw.githubusercontent.com/aFINKndreas/parallax-scrolling-v2/master/img/screen1.png "Image 2")
+![Image 1](https://raw.githubusercontent.com/aFINKndreas/parallax-scrolling-v2/master/img/screen0.jpg "Image 1")
+![Image 2](https://raw.githubusercontent.com/aFINKndreas/parallax-scrolling-v2/master/img/screen1.jpg "Image 2")

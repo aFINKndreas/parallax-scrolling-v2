@@ -27,10 +27,15 @@ document.addEventListener("DOMContentLoaded", function() {
 		for (var i = 0; i < globals.obj.length; i++){
 			var offsetTempObj = getCoords(globals.obj[i]);
 			if (offsetTempObj.top <= offsetTempObj.height && offsetTempObj.top >= (-offsetTempObj.height)){
-				var perc = getAttr(globals.obj[i],'parallax-percent');
+				var perc = getAttr(globals.obj[i],'parallax-speed');
 				var offset = -offsetTempObj.top*perc;
-				globals.obj[i].getElementsByTagName('img')[0].style.height = "calc( 100% * (1 + "+perc+"))";
-				globals.obj[i].getElementsByTagName('img')[0].style.transform = "translate3d(0,"+ offset +"px, 0)";
+				if (globals.obj[i].getElementsByTagName('img').length > 0){
+					globals.obj[i].getElementsByTagName('img')[0].style.height = "calc( 100% * (1 + "+perc+"))";
+					globals.obj[i].getElementsByTagName('img')[0].style.transform = "translate3d(-50%,"+ offset +"px, 0)";
+				} else if (globals.obj[i].getElementsByTagName('video').length > 0){
+					globals.obj[i].getElementsByTagName('video')[0].style.height = "calc( 100% * (1 + "+perc+"))";
+					globals.obj[i].getElementsByTagName('video')[0].style.transform = "translate3d(-50%,"+ offset +"px, 0)";
+				}
 			}	
 		}
 	}
@@ -51,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	function getAttr(obj,attr){
 		if (obj.getAttribute(attr) != null){
 			switch (attr){
-				case "parallax-percent":
-					return getValueWithinRange(obj.getAttribute(attr),defaults.parllaxPercent,0,1);
+				case "parallax-speed":
+					return getValueWithinRange(obj.getAttribute(attr),defaults.parllaxPercent,0,0.5);
 					break;
 				default:
 					return obj.getAttribute(attr);
@@ -60,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 		} else {
 			switch (attr){
-				case "parallax-percent":
+				case "parallax-speed":
 					return defaults.parllaxPercent;
 					break;
 				default:
@@ -72,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	function draw(){
 		if (window.requestAnimationFrame && document.documentElement.classList){
-			//console.log("Yes");
 			window.addEventListener("scroll", function(event) {
 			    window.requestAnimationFrame(parallax);
 			}, false);
