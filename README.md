@@ -10,6 +10,16 @@ Here you can see a [Demo](https://afinkndreas.github.io/parallax-scrolling-v2/de
   <h1 class="dark">Parallax Scrolling Demo</h1>
 </parallax>
 ```
+
+```html
+<parallax parallax-speed="0.35">
+  <video poster="vid/demo.jpg" playsinline autoplay muted loop>
+    <source src="vid/demo.ogv" type="video/ogv">
+    <source src="vid/demo.mp4" type="video/mp4">
+  </video>
+  <h1 class="dark">Parallax Scrolling Demo</h1>
+</parallax>
+```
 ##Options
 | Attribute | Values | Default | Required | Description |
 |:---------:|:------:|:-------:|:--------:|:-----------:|
