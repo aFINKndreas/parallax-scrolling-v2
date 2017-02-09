@@ -6,24 +6,32 @@ Here you can see a [Demo](https://afinkndreas.github.io/parallax-scrolling-v2/de
 ##Usage Example
 ```html
 <parallax parallax-percent="0.25">
-  <img src="img/demo0.jpg" alt="Text">
-  <h1 class="dark">Parallax Scrolling Demo</h1>
+  <background>
+  	<img src="img/demo0.jpg" alt="Text">
+  </background>
+  <content>
+  	<h1 class="dark">Parallax Scrolling Demo</h1>
+  </content>
 </parallax>
 ```
 
 ```html
-<parallax parallax-speed="0.35">
-  <video poster="vid/demo.jpg" playsinline autoplay muted loop>
-    <source src="vid/demo.ogv" type="video/ogv">
-    <source src="vid/demo.mp4" type="video/mp4">
-  </video>
-  <h1 class="dark">Parallax Scrolling Demo</h1>
+<parallax parallax-speed="0.25">
+  <background>
+    <video poster="vid/demo.jpg" playsinline autoplay muted loop>
+      <source src="vid/demo.ogv" type="video/ogv">
+      <source src="vid/demo.mp4" type="video/mp4">
+    </video>
+  </background>
+  <content>
+    <h1 class="dark">Parallax Scrolling Demo</h1>
+  </content>
 </parallax>
 ```
 ##Options
 | Attribute | Values | Default | Required | Description |
 |:---------:|:------:|:-------:|:--------:|:-----------:|
-| parallax-speed | 0.0 - 0.5 | 0.25 | optional| The speed of the parallax effect. 0% means no parallax. 50% means the max. parallax. |
+| parallax-speed | 0.0 - 1.0 | 0.25 | optional| The speed of the parallax effect. 0% means no parallax. 100% means the max. parallax. |
 
 ##Images
 

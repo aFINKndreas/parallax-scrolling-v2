@@ -1,6 +1,6 @@
 /*
 Parallax Scrolling Framework - a lightweight and customizable framework for parallax scrolling
-Version: 0.1.07-01-2017
+Version: 0.2.09-02-2017
 Author: Andreas Fink 
 Website: https://afink.at
 Github: https://github.com/aFinkndreas
@@ -27,14 +27,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		for (var i = 0; i < globals.obj.length; i++){
 			var offsetTempObj = getCoords(globals.obj[i]);
 			if (offsetTempObj.top <= offsetTempObj.height && offsetTempObj.top >= (-offsetTempObj.height)){
-				var perc = getAttr(globals.obj[i],'parallax-speed');
+				var perc = getAttr(globals.obj[i],'parallax-speed')/2;
 				var offset = -offsetTempObj.top*perc;
-				if (globals.obj[i].getElementsByTagName('img').length > 0){
-					globals.obj[i].getElementsByTagName('img')[0].style.height = "calc( 100% * (1 + "+perc+"))";
-					globals.obj[i].getElementsByTagName('img')[0].style.transform = "translate3d(-50%,"+ offset +"px, 0)";
-				} else if (globals.obj[i].getElementsByTagName('video').length > 0){
-					globals.obj[i].getElementsByTagName('video')[0].style.height = "calc( 100% * (1 + "+perc+"))";
-					globals.obj[i].getElementsByTagName('video')[0].style.transform = "translate3d(-50%,"+ offset +"px, 0)";
+				if (globals.obj[i].getElementsByTagName('background').length > 0){
+					globals.obj[i].getElementsByTagName('background')[0].style.height = "calc( 100% * (1 + "+perc+"))";
+					globals.obj[i].getElementsByTagName('background')[0].style.transform = "translate3d(-50%,"+ offset +"px, 0)";
 				}
 			}	
 		}
@@ -57,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (obj.getAttribute(attr) != null){
 			switch (attr){
 				case "parallax-speed":
-					return getValueWithinRange(obj.getAttribute(attr),defaults.parllaxPercent,0,0.5);
+					return getValueWithinRange(obj.getAttribute(attr),defaults.parllaxPercent,0,1);
 					break;
 				default:
 					return obj.getAttribute(attr);
