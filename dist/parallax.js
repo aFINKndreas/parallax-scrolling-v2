@@ -74,13 +74,26 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	};
 
+	window.requestAnimFrame = function(){
+	    return (
+	        window.requestAnimationFrame       || 
+	        window.webkitRequestAnimationFrame || 
+	        window.mozRequestAnimationFrame    || 
+	        window.oRequestAnimationFrame      || 
+	        window.msRequestAnimationFrame     || 
+	        function(callback){
+	            window.setTimeout(callback, 1000 / 60);
+	        }
+	    );
+	}();
+
 	function draw(){
 		if (window.requestAnimationFrame && document.documentElement.classList){
 			window.addEventListener("scroll", function(event) {
-			    window.requestAnimationFrame(parallax);
+			    window.requestAnimFrame(parallax);
 			}, false);
 			window.addEventListener("resize", function(event) {
-			    window.requestAnimationFrame(parallax);
+			    window.requestAnimFrame(parallax);
 			}, false);
 		}
 	}
