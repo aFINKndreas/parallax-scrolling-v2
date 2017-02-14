@@ -8,7 +8,7 @@ Github: https://github.com/aFinkndreas
 document.addEventListener("DOMContentLoaded", function() {
 
 	var defaults = {
-		parllaxPercent: 0.25
+		parallaxPercent: 0.25
 	};
 
 	var globals = {
@@ -27,10 +27,12 @@ document.addEventListener("DOMContentLoaded", function() {
 		for (var i = 0; i < globals.obj.length; i++){
 			var offsetTempObj = getCoords(globals.obj[i]);
 			if (offsetTempObj.top <= offsetTempObj.height && offsetTempObj.top >= (-offsetTempObj.height)){
-				var perc = getAttr(globals.obj[i],'parallax-speed')/2;
+				var perc = getAttr(globals.obj[i],'parallax-speed');
 				var offset = -offsetTempObj.top*perc;
+				var bg = getAttr(globals.obj[i],'parallax-bg');
 				if (globals.obj[i].getElementsByTagName('background').length > 0){
 					globals.obj[i].getElementsByTagName('background')[0].style.height = "calc( 100% * (1 + "+perc+"))";
+					globals.obj[i].getElementsByTagName('background')[0].style.minHeight = "calc( 100% * (1 + "+perc+"))";
 					globals.obj[i].getElementsByTagName('background')[0].style.transform = "translate3d(-50%,"+ offset +"px, 0)";
 				}
 			}	
@@ -54,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (obj.getAttribute(attr) != null){
 			switch (attr){
 				case "parallax-speed":
-					return getValueWithinRange(obj.getAttribute(attr),defaults.parllaxPercent,0,1);
+					return getValueWithinRange(obj.getAttribute(attr),defaults.parallaxPercent,0,0.9);
 					break;
 				default:
 					return obj.getAttribute(attr);
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		} else {
 			switch (attr){
 				case "parallax-speed":
-					return defaults.parllaxPercent;
+					return defaults.parallaxPercent;
 					break;
 				default:
 					return "";

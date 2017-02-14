@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+::-webkit-scrollbar { 
+    display: none; 
+}
 html, body {
   margin: 0px;
   padding: 0px;
@@ -32,6 +35,7 @@ parallax background {
   top: 0px;
   left: 50%;
 }
+
 parallax background > * {
   min-width: 100%;
   height: 100%;
