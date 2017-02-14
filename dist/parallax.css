@@ -33,13 +33,12 @@ parallax background {
   min-height: 100%;
   position: absolute;
   top: 0px;
-  left: 50%;
 }
 
 parallax background > * {
   width: 100%;
-  min-height: 100%;
-  object-fit: initial;
+  height: 100%;
+  object-fit: cover;
 }
 parallax content {
   display: inline-block;

@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				if (globals.obj[i].getElementsByTagName('background').length > 0){
 					globals.obj[i].getElementsByTagName('background')[0].style.height = "calc( 100% * (1 + "+perc+"))";
 					globals.obj[i].getElementsByTagName('background')[0].style.minHeight = "calc( 100% * (1 + "+perc+"))";
-					globals.obj[i].getElementsByTagName('background')[0].style.transform = "translate3d(-50%,"+ offset +"px, 0)";
+					globals.obj[i].getElementsByTagName('background')[0].style.transform = "translate3d(0,"+ offset +"px, 0)";
 				}
 			}	
 		}
